@@ -38,7 +38,7 @@ class SongDetailFragment : Fragment() {
                 .placeholder(R.drawable.ic_progres_bar).diskCacheStrategy(
                     DiskCacheStrategy.NONE
                 )
-                .into(imageView)
+                .into(imgSongDetail)
             tvArtistDetail.text = it.artist
         })
     }
