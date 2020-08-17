@@ -18,10 +18,15 @@ class SongViewModel :ViewModel(){
         Song("Fourtwnty","Nematomorpha","https://static.republika.co.id/uploads/images/inpicture_slide/fourtwnty-_180905222330-614.jpg")
     )
 
-    val songLiveData: MutableLiveData<MutableList<Song>> = MutableLiveData(songList)
+    val songsLiveData: MutableLiveData<MutableList<Song>> = MutableLiveData(songList)
+    val songLiveData:MutableLiveData<Song> = MutableLiveData()
 
     fun addSong(song: Song) {
         songList.add(song)
-        songLiveData.value = songList
+        songsLiveData.value = songList
+    }
+    fun detailSong(position:Int){
+        val currentSong = songList[position]
+        songLiveData.value = currentSong
     }
 }

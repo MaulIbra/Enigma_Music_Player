@@ -13,10 +13,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.enigma_music_player.R
 import com.example.enigma_music_player.domain.song.SongViewModel
+import com.example.enigma_music_player.domain.song.adapter.ISongRecycleListener
 import com.example.enigma_music_player.domain.song.adapter.SongRecycleAdapter
 import kotlinx.android.synthetic.main.fragment_song_list.*
 
-class SongListFragment : Fragment(),View.OnClickListener {
+class SongListFragment : Fragment(),View.OnClickListener,ISongRecycleListener {
 
     val songViewModel by activityViewModels<SongViewModel>()
     lateinit var songRecycleAdapter: SongRecycleAdapter
@@ -38,10 +39,10 @@ class SongListFragment : Fragment(),View.OnClickListener {
         btnAddSong.setOnClickListener(this)
         navController = Navigation.findNavController(view)
         rvSongList.layoutManager = LinearLayoutManager(context)
-        songRecycleAdapter = SongRecycleAdapter(songViewModel.songLiveData.value!!)
-//        songRecycleAdapter.listener = view.context
+        songRecycleAdapter = SongRecycleAdapter(songViewModel.songsLiveData.value!!)
+        songRecycleAdapter.listener = this
         rvSongList.adapter = songRecycleAdapter
-        songViewModel.songLiveData.observe(viewLifecycleOwner, Observer {
+        songViewModel.songsLiveData.observe(viewLifecycleOwner, Observer {
             songRecycleAdapter.notifyDataSetChanged()
         })
     }
@@ -50,5 +51,10 @@ class SongListFragment : Fragment(),View.OnClickListener {
         when (v){
             btnAddSong -> navController.navigate(R.id.action_songListFragment_to_songInputFragment)
         }
+    }
+
+    override fun onItemClick(position: Int) {
+        songViewModel.detailSong(position)
+        navController.navigate(R.id.action_songListFragment_to_songDetailFragment)
     }
 }
