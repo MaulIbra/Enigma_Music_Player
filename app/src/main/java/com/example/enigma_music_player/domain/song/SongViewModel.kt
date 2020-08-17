@@ -20,6 +20,8 @@ class SongViewModel :ViewModel(){
 
     val songLiveData: MutableLiveData<MutableList<Song>> = MutableLiveData(songList)
 
-    fun addLanguage(lang: String) {
+    fun addSong(song: Song) {
+        songList.add(song)
+        songLiveData.value = songList
     }
 }

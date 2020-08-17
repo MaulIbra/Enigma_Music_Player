@@ -21,7 +21,14 @@
         android:id="@+id/songInputFragment"
         android:name="com.example.enigma_music_player.domain.song.fragment.SongInputFragment"
         android:label="fragment_song_input"
-        tools:layout="@layout/fragment_song_input" />
+        tools:layout="@layout/fragment_song_input" >
+        <action
+            android:id="@+id/action_songInputFragment_to_songListFragment"
+            app:destination="@id/songListFragment"
+            app:popUpTo="@+id/songListFragment"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
     <fragment
         android:id="@+id/songDetailFragment"
         android:name="com.example.enigma_music_player.domain.song.fragment.SongDetailFragment"

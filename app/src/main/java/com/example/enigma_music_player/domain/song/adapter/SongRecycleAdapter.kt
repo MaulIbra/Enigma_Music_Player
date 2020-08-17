@@ -14,7 +14,7 @@ import com.example.enigma_music_player.domain.song.model.Song
 class SongRecycleAdapter(private val songList:MutableList<Song>):
     RecyclerView.Adapter<SongViewHolder>() {
 
-    lateinit var listener: ISongRecycleListener
+//    lateinit var listener: ISongRecycleListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -30,8 +30,8 @@ class SongRecycleAdapter(private val songList:MutableList<Song>):
         holder.tvArtist.text = songList[position].artist
         holder.tvAlbum.text = songList[position].album
         Glide.with(holder.itemView.context).load(songList[position].songImageUrl).into(holder.imgSong);
-        holder.itemView.setOnClickListener {
-            listener.onItemClick(position)
-        }
+//        holder.itemView.setOnClickListener {
+//            listener.onItemClick(position)
+//        }
     }
 }
