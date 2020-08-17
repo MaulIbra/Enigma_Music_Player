@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/song_navigation"
+    app:startDestination="@id/songListFragment">
+
+    <fragment
+        android:id="@+id/songListFragment"
+        android:name="com.example.enigma_music_player.domain.song.fragment.SongListFragment"
+        android:label="fragment_song_list"
+        tools:layout="@layout/fragment_song_list" >
+        <action
+            android:id="@+id/action_songListFragment_to_songDetailFragment"
+            app:destination="@id/songDetailFragment" />
+        <action
+            android:id="@+id/action_songListFragment_to_songInputFragment"
+            app:destination="@id/songInputFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/songInputFragment"
+        android:name="com.example.enigma_music_player.domain.song.fragment.SongInputFragment"
+        android:label="fragment_song_input"
+        tools:layout="@layout/fragment_song_input" />
+    <fragment
+        android:id="@+id/songDetailFragment"
+        android:name="com.example.enigma_music_player.domain.song.fragment.SongDetailFragment"
+        android:label="fragment_song_detail"
+        tools:layout="@layout/fragment_song_detail" />
+</navigation>
