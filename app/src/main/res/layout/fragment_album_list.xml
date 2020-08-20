@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".domain.song.fragment.SongListFragment">
+    tools:context=".views.album.fragment.AlbumListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSongList"
@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/song_item" />
+        tools:listitem="@layout/album_item" />
 
     <RelativeLayout
         android:layout_width="wrap_content"

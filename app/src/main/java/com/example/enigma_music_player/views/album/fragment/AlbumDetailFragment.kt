@@ -1,4 +1,4 @@
-package com.example.enigma_music_player.domain.song.fragment
+package com.example.enigma_music_player.views.album.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,13 +11,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 import com.example.enigma_music_player.R
-import com.example.enigma_music_player.domain.song.SongViewModel
-import kotlinx.android.synthetic.main.fragment_song_detail.*
-import kotlinx.android.synthetic.main.song_item.*
+import com.example.enigma_music_player.views.album.AlbumViewModel
+import kotlinx.android.synthetic.main.fragment_album_detail.*
 
-class SongDetailFragment : Fragment() {
+class AlbumDetailFragment : Fragment() {
 
-    private val songViewModel by activityViewModels<SongViewModel>()
+    private val albumViewModel by activityViewModels<AlbumViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,13 +27,13 @@ class SongDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_song_detail, container, false)
+        return inflater.inflate(R.layout.fragment_album_detail, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        songViewModel.songLiveData.observe(viewLifecycleOwner, Observer {
-            Glide.with(this).load(it.songImageUrl).fitCenter()
+        albumViewModel.album.observe(viewLifecycleOwner, Observer {
+            Glide.with(this).load(it.albumImageUrl).fitCenter()
                 .placeholder(R.drawable.ic_progres_bar).diskCacheStrategy(
                     DiskCacheStrategy.NONE
                 )

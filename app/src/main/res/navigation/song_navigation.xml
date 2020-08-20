@@ -7,23 +7,23 @@
 
     <fragment
         android:id="@+id/songListFragment"
-        android:name="com.example.enigma_music_player.domain.song.fragment.SongListFragment"
+        android:name="com.example.enigma_music_player.views.album.fragment.AlbumListFragment"
         android:label="fragment_song_list"
-        tools:layout="@layout/fragment_song_list" >
+        tools:layout="@layout/fragment_album_list" >
         <action
-            android:id="@+id/action_songListFragment_to_songDetailFragment"
+            android:id="@+id/action_albumListFragment_to_albumDetailFragment"
             app:destination="@id/songDetailFragment" />
         <action
-            android:id="@+id/action_songListFragment_to_songInputFragment"
+            android:id="@+id/action_albumListFragment_to_albumInputFragment"
             app:destination="@id/songInputFragment" />
     </fragment>
     <fragment
         android:id="@+id/songInputFragment"
-        android:name="com.example.enigma_music_player.domain.song.fragment.SongInputFragment"
+        android:name="com.example.enigma_music_player.views.album.fragment.AlbumInputFragment"
         android:label="fragment_song_input"
-        tools:layout="@layout/fragment_song_input" >
+        tools:layout="@layout/fragment_album_input" >
         <action
-            android:id="@+id/action_songInputFragment_to_songListFragment"
+            android:id="@+id/action_albumInputFragment_to_albumListFragment"
             app:destination="@id/songListFragment"
             app:popUpTo="@+id/songListFragment"
             app:popUpToInclusive="true"
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/songDetailFragment"
-        android:name="com.example.enigma_music_player.domain.song.fragment.SongDetailFragment"
+        android:name="com.example.enigma_music_player.views.album.fragment.AlbumDetailFragment"
         android:label="fragment_song_detail"
-        tools:layout="@layout/fragment_song_detail" />
+        tools:layout="@layout/fragment_album_detail" />
 </navigation>

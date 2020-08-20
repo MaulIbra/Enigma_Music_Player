@@ -1,4 +1,4 @@
-package com.example.enigma_music_player.domain.song.adapter
+package com.example.enigma_music_player.views.album.adapter
 
 import android.view.View
 import android.widget.ImageView
@@ -10,8 +10,8 @@ import com.example.enigma_music_player.R
  * Email maulibrahim19@gmail.com
  */
 
-class SongViewHolder(v:View):RecyclerView.ViewHolder(v){
-    val imgSong:ImageView = v.findViewById(R.id.imgSong)
-    val tvAlbum:TextView = v.findViewById(R.id.tvAlbum)
+class AlbumViewHolder(v:View):RecyclerView.ViewHolder(v){
+    val albumImageUrl:ImageView = v.findViewById(R.id.imgAlbum)
+    val tvAlbumTitle:TextView = v.findViewById(R.id.tvAlbumTitle)
     val tvArtist:TextView = v.findViewById(R.id.tvArtist)
 }
