@@ -17,14 +17,14 @@ class AlbumViewModel(application: Application) : AndroidViewModel(application){
 
     private val repository:AlbumRepository
     val allAlbum: LiveData<List<Album>>
-    val album :LiveData<Album>
+    var album :LiveData<Album>
 
 
     init {
         val artistDao = AppRoomDatabase.getDatabaseInstance(application).albumDao()
         repository = AlbumRepository(artistDao)
         allAlbum = repository.allAlbum
-        album = repository.getAlbumById(id = 0)
+        album = repository.getAlbumById()
     }
 
     fun createAlbum(album: Album) {
@@ -34,7 +34,7 @@ class AlbumViewModel(application: Application) : AndroidViewModel(application){
     }
     fun detailAlbum(albumId:Int){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.getAlbumById(albumId)
+            album = repository.getAlbumById(albumId)
         }
     }
 }

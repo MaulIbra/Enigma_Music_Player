@@ -36,7 +36,7 @@ class AlbumRecycleAdapter(private val albumList: List<Album>) :
             )
             .into(holder.albumImageUrl)
         holder.itemView.setOnClickListener {
-            listener.onItemClick(position)
+            listener.onItemClick(albumList[position].id)
         }
     }
 }

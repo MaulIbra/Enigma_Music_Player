@@ -10,7 +10,7 @@ class AlbumRepository(val albumDao: AlbumDao) {
 
     val allAlbum: LiveData<List<Album>> = albumDao.getAllAlbum()
 
-    fun getAlbumById(id:Int) : LiveData<Album>{
+    fun getAlbumById(id:Int=0):LiveData<Album>{
         return albumDao.getAlbumById(id)
     }
 
