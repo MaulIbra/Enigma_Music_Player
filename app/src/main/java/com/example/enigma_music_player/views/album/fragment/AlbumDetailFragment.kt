@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 import com.example.enigma_music_player.R
-import com.example.enigma_music_player.views.album.AlbumViewModel
+import com.example.enigma_music_player.viewmodel.AlbumViewModel
 import kotlinx.android.synthetic.main.fragment_album_detail.*
 
 class AlbumDetailFragment : Fragment() {

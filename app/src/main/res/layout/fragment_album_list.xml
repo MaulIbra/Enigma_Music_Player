@@ -9,7 +9,7 @@
     tools:context=".views.album.fragment.AlbumListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvSongList"
+        android:id="@+id/rvAlbumList"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:padding="4dp"
@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnAddSong"
+            android:id="@+id/btnAddAlbum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:backgroundTint="@android:color/holo_blue_dark"

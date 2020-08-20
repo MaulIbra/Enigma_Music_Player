@@ -1,4 +1,4 @@
-package com.example.enigma_music_player.views.album
+package com.example.enigma_music_player.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*

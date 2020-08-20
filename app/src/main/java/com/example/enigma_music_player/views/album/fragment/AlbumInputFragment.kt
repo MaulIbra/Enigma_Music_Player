@@ -10,7 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 
 import com.example.enigma_music_player.R
-import com.example.enigma_music_player.views.album.AlbumViewModel
+import com.example.enigma_music_player.viewmodel.AlbumViewModel
 import com.example.enigma_music_player.data.room.album.Album
 import kotlinx.android.synthetic.main.fragment_album_input.*
 

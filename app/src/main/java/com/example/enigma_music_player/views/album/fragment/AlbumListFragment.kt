@@ -12,7 +12,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.enigma_music_player.R
-import com.example.enigma_music_player.views.album.AlbumViewModel
+import com.example.enigma_music_player.viewmodel.AlbumViewModel
 import com.example.enigma_music_player.views.album.adapter.IAlbumRecycleListener
 import com.example.enigma_music_player.views.album.adapter.AlbumRecycleAdapter
 import kotlinx.android.synthetic.main.fragment_album_list.*
@@ -36,19 +36,19 @@ class AlbumListFragment : Fragment(),View.OnClickListener,IAlbumRecycleListener 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnAddSong.setOnClickListener(this)
+        btnAddAlbum.setOnClickListener(this)
         navController = Navigation.findNavController(view)
-        rvSongList.layoutManager = LinearLayoutManager(context)
+        rvAlbumList.layoutManager = LinearLayoutManager(context)
         albumViewModel.allAlbum.observe(viewLifecycleOwner, Observer {
             albumRecycleAdapter = AlbumRecycleAdapter(it)
             albumRecycleAdapter.listener = this
-            rvSongList.adapter = albumRecycleAdapter
+            rvAlbumList.adapter = albumRecycleAdapter
         })
     }
 
     override fun onClick(v: View?) {
         when (v){
-            btnAddSong -> navController.navigate(R.id.action_albumListFragment_to_albumInputFragment)
+            btnAddAlbum -> navController.navigate(R.id.action_albumListFragment_to_albumInputFragment)
         }
     }
 

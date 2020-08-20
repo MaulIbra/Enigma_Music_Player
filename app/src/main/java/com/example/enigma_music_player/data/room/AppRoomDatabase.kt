@@ -6,16 +6,20 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.enigma_music_player.data.room.album.Album
 import com.example.enigma_music_player.data.room.album.AlbumDao
+import com.example.enigma_music_player.data.room.song.Song
+import com.example.enigma_music_player.data.room.song.SongDao
 
 /**
  * Created by Maulana Ibrahim on 20/August/2020
  * Email maulibrahim19@gmail.com
  */
 
-@Database(entities = arrayOf(Album::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(Album::class,Song::class), version = 2, exportSchema = false)
 abstract class AppRoomDatabase:RoomDatabase() {
 
     abstract fun albumDao():AlbumDao
+
+    abstract fun songDao():SongDao
 
 
     companion object{

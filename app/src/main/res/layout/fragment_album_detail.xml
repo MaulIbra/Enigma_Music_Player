@@ -8,6 +8,7 @@
     tools:context=".views.album.fragment.AlbumDetailFragment">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -41,32 +42,30 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="20sp" />
 
-            <FrameLayout
-                android:id="@+id/video_frame"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:background="#000">
-
-                <VideoView
-                    android:id="@+id/video_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    />
-
-                <ImageButton
-                    android:id="@+id/play_button"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:tint="@android:color/black"
-                    android:layout_gravity="center_vertical|center_horizontal"
-                    android:src="@drawable/ic_play_arrow_black_24dp"
-                    />
-
-            </FrameLayout>
         </LinearLayout>
-
     </com.google.android.material.card.MaterialCardView>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSongList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card"
+        tools:listitem="@layout/song_item" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddSong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        app:backgroundTint="@android:color/holo_blue_dark"
+        app:srcCompat="@drawable/ic_add_black_24dp"
+        app:tint="@android:color/white"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
