@@ -1,6 +1,7 @@
 package com.example.enigma_music_player.data.room.song
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 
@@ -9,6 +10,7 @@ import androidx.room.Query
  * Email maulibrahim19@gmail.com
  */
 
+@Dao
 interface SongDao {
 
     @Insert

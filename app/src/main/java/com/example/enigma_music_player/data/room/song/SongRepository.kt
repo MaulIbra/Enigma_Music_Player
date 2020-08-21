@@ -8,7 +8,11 @@ import androidx.lifecycle.LiveData
  */
 class SongRepository(val songDao: SongDao) {
 
-    fun getAllSong(albumId:Int):LiveData<List<Song>>{
+    fun createSong(song: Song){
+        songDao.createSong(song)
+    }
+
+    fun getAllSong(albumId:Int=0):LiveData<List<Song>>{
         return songDao.getAllSong(albumId)
     }
 }

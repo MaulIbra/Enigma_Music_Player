@@ -5,6 +5,8 @@ import androidx.lifecycle.*
 import com.example.enigma_music_player.data.room.AppRoomDatabase
 import com.example.enigma_music_player.data.room.album.Album
 import com.example.enigma_music_player.data.room.album.AlbumRepository
+import com.example.enigma_music_player.data.room.song.Song
+import com.example.enigma_music_player.data.room.song.SongRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -15,26 +17,41 @@ import kotlinx.coroutines.launch
 
 class AlbumViewModel(application: Application) : AndroidViewModel(application){
 
-    private val repository:AlbumRepository
+    private val albumRepository:AlbumRepository
+    private val songRepository:SongRepository
+
     val allAlbum: LiveData<List<Album>>
     var album :LiveData<Album>
+    private set
+    var songsByAlbum : LiveData<List<Song>>
+    private set
 
 
     init {
         val artistDao = AppRoomDatabase.getDatabaseInstance(application).albumDao()
-        repository = AlbumRepository(artistDao)
-        allAlbum = repository.allAlbum
-        album = repository.getAlbumById()
+        val songDao = AppRoomDatabase.getDatabaseInstance(application).songDao()
+        albumRepository = AlbumRepository(artistDao)
+        songRepository = SongRepository(songDao)
+        allAlbum = albumRepository.allAlbum
+        album = albumRepository.getAlbumById()
+        songsByAlbum = songRepository.getAllSong()
     }
 
     fun createAlbum(album: Album) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.createAlbum(album)
+            albumRepository.createAlbum(album)
         }
     }
     fun detailAlbum(albumId:Int){
         viewModelScope.launch(Dispatchers.IO) {
-            album = repository.getAlbumById(albumId)
+            album = albumRepository.getAlbumById(albumId)
+            songsByAlbum = songRepository.getAllSong(albumId)
+        }
+    }
+
+    fun createSong(song: Song){
+        viewModelScope.launch(Dispatchers.IO) {
+            songRepository.createSong(song)
         }
     }
 }
